@@ -13,19 +13,15 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        ref: main
+        fetch-depth: 0
 
     - name: Show list of file on actual directory
       run: ls
 
-    - name: Configure git
-      run: |
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        
-    - name: Merge main into deploy
-      run: |
-        git fetch origin
-        git checkout deploy
-        git merge origin/main -m "Merge main into deploy" --allow-unrelated-histories
-        git push origin deploy --f
+    - name: Merge main -> deploy
+      uses: devmasx/merge-branch@master
+      with:
+        type: now
+        from_branch: main
+        target_branch: deploy
+        github_token: ${{ secrets.GITHUB_TOKEN }}
