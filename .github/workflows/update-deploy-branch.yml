@@ -1,0 +1,28 @@
+name: Get latest changes on main branch and merge into deploy branch
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  pull_changes_from_main:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: main
+
+    - name: Show list of file on actual directory
+      run: ls
+
+    - name: Configure git
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        
+    - name: Merge main into deploy
+      run: |
+        git fetch origin
+        git checkout deploy
+        git merge --allow-unrelated-histories --no-ff main -m "Merge main into deploy"
+        git push origin deploy
