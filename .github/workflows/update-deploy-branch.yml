@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '.github/**'
 jobs:
   pull_changes_from_main:
     runs-on: ubuntu-latest
@@ -24,5 +26,5 @@ jobs:
       run: |
         git fetch origin
         git checkout deploy
-        git merge origin/main -m "Merge main into deploy" --force
-        git push origin deploy
+        git merge origin/main -m "Merge main into deploy"
+        git push origin deploy --f
