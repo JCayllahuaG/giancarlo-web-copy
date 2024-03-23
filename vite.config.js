@@ -10,7 +10,8 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@public/components': fileURLToPath(new URL('./src/public/components', import.meta.url)),
+      '@service-catalog/components': fileURLToPath(new URL('./src/service-catalog/components', import.meta.url)),
     }
   }
 })
