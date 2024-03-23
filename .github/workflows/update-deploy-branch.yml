@@ -14,3 +14,15 @@ jobs:
 
     - name: Show list of file on actual directory
       run: ls
+
+    - name: Configure git
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        
+    - name: Merge main into deploy
+      run: |
+        git fetch origin
+        git checkout deploy
+        git merge --no-ff main -m "Merge main into deploy"
+        git push origin deploy
