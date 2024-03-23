@@ -24,5 +24,5 @@ jobs:
       run: |
         git fetch origin
         git checkout deploy
-        git merge --allow-unrelated-histories --no-ff main -m "Merge main into deploy"
+        git merge origin/main -m "Merge main into deploy" --force
         git push origin deploy
