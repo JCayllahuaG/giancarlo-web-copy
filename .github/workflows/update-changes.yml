@@ -1,0 +1,14 @@
+name: Get latest changes on main branch and merge into deploy branch
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  pull_changes_from_main:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Show list of file on actual directory
+      run: ls
