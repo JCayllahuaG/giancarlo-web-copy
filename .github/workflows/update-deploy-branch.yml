@@ -6,6 +6,7 @@ on:
       - main
     paths-ignore:
       - '.github/**'
+  workflow_dispatch:
 jobs:
   pull_changes_from_main:
     runs-on: ubuntu-latest
