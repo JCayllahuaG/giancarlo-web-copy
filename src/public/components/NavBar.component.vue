@@ -44,5 +44,8 @@
     button:hover {
         @apply bg-secondary ;
     }
+    li:hover{
+        @apply bg-secondary;
+    }
 
 </style>
