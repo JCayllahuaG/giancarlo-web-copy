@@ -2,7 +2,7 @@
 <template>
   <nav>
     <span>
-      <button @click="$emit('sendSideBarStatus')">
+      <button class="w-10" @click="$emit('sendSideBarStatus')">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -16,7 +16,7 @@
           />
         </svg>
       </button>
-      <img src="@assets/images/logo-global-hits-dark.webp" alt="Logo" />
+      <img class="h-8" src="@assets/images/logo-global-hits-dark.webp" alt="Logo" />
     </span>
 
     <ul>
@@ -40,7 +40,7 @@ ul > li {
   @apply flex w-fit items-center;
 }
 span {
-  @apply flex w-40 h-auto items-center  space-x-2;
+  @apply flex w-fit h-16 items-center  space-x-2;
 }
 button {
   @apply flex w-10 h-10 rounded-full items-center justify-center transition duration-100 ease-linear;
