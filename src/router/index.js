@@ -15,6 +15,11 @@ const router = createRouter({
       component: LoginPage
     },
     {
+      path: '/signup',
+      name: 'signup',
+      component: LoginPage
+    },
+    {
       path: '/dashboard/',
       name: 'dashboard',
       component: HomePage,

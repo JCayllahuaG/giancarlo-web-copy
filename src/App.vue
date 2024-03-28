@@ -6,11 +6,12 @@ const getCurrentRoute = () => {
   const route = useRoute()
   return route.fullPath
 }
+
 getCurrentRoute()
 </script>
 <template>
   <div id="app">
-    <RouterView v-if="getCurrentRoute ?? ('/' || '/login')" />
+    <RouterView v-if="getCurrentRoute ?? ('/' || '/login' || '/signup')" />
     <HomePage v-else />
   </div>
 </template>

@@ -1,40 +1,51 @@
 <script setup>
 import { useRouter } from 'vue-router'
+import FormField from '@shared/components/FormField.component.vue'
+import { useToast } from 'primevue/usetoast'
 
 const router = useRouter()
-
-function Login() {
+const toast = useToast()
+async function Login() {
   // Perform login logic here
   // Redirect to another route after successful login
+  toast.add({
+    severity: 'success',
+    summary: 'Success',
+    detail: 'Login Successful',
+    life: 3000
+  })
+  await Sleep(3500)
   router.push('/dashboard')
+}
+function Register() {
+  router.push('/signup')
+}
+
+function Sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
 </script>
 
 <template>
+  <pv-toast />
   <form
     class="flex flex-col py-4 bg-primary/60 rounded-2xl items-center w-[30%] h-fit text-white gap-5 border border-[#8c8c8c]/20 drop-shadow-2xl"
-    @submit="Login"
     @submit.prevent
   >
     <h1 class="text-2xl font-normal">Welcome Back</h1>
 
-    <div class="form-field">
-      <label for="email">Username</label>
-      <input autocomplete="off" id="email" type="email" placeholder="example@mail.com" />
-    </div>
-    <div class="form-field">
-      <label for="password">Password</label>
-      <input autocomplete="off" id="password" type="password" placeholder="************" />
-    </div>
+    <FormField id="email" label="Username" type="email" placeholder="example@mail.com" />
+    <FormField id="password" label="Password" type="password" placeholder="************" />
+
     <div class="submit-section text-white text-lg">
       <button
         class="flex w-full h-14 items-center justify-center bg-[#0DB387] rounded-xl px-4 py-2"
-        type="submit"
+        @click="Login"
       >
         Log In
       </button>
       <span>or</span>
-      <button class="google-button" type="button">
+      <button class="google-button" type="button" @click="Register">
         <img src="@assets/images/google-icon.webp" width="30px" alt="Google Logo" />
         <span class="ml-2 text-[#818181] font-normal">Continue with </span>Google
       </button>
