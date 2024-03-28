@@ -33,7 +33,7 @@ const props = defineProps(['isExpanded'])
       </li>
       <li>
         <BriefcaseIcon class="icon-style" />
-        <span v-if="props.isExpanded" @click="changePath('services')">Services</span>
+        <span v-if="props.isExpanded" @click="changePath('dashboard/services')">Services</span>
       </li>
       <li>
         <UserIcon class="icon-style" />

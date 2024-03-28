@@ -9,6 +9,7 @@ import PrimeVue from 'primevue/config'
 
 //Pages
 import HomePage from './public/pages/HomePage.vue'
+import LoginPage from '@iam/pages/LoginPage.vue'
 
 //in main.js
 import 'primevue/resources/themes/aura-light-indigo/theme.css'
@@ -24,5 +25,6 @@ createApp(App)
   .use(PrimeVue, { ripple: true })
   .use(ToastService)
   .component('HomePage', HomePage)
+  .component('LoginPage', LoginPage)
   .component('pv-toast', Toast)
   .mount('#app')
