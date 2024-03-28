@@ -8,7 +8,7 @@ export default {
         secondary: '#3F4453'
       },
       backgroundImage: {
-        'iam-background': "url('/src/assets/images/iam-background.webp')"
+        'iam-background': "url('/src/assets/images/iam-background-small.webp')"
       }
     }
   },
