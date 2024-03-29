@@ -13,7 +13,8 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 function changePath(path) {
-  router.push(path)
+  if (path === 'services') router.push('/dashboard/services')
+  // router.push(path)
 }
 
 const props = defineProps(['isExpanded'])
@@ -33,7 +34,7 @@ const props = defineProps(['isExpanded'])
       </li>
       <li>
         <BriefcaseIcon class="icon-style" />
-        <span v-if="props.isExpanded" @click="changePath('dashboard/services')">Services</span>
+        <span v-if="props.isExpanded" @click="changePath('services')">Services</span>
       </li>
       <li>
         <UserIcon class="icon-style" />
