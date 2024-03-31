@@ -24,4 +24,7 @@ const input = defineProps({
 .form-field input {
   @apply min-h-12 rounded-xl bg-primary/70 px-2 placeholder:text-[#afafaf] border border-[#8c8c8c] outline-none;
 }
+::-ms-reveal {
+  filter: invert(100%);
+}
 </style>
