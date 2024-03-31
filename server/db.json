@@ -1,50 +1,59 @@
 {
-    "services":[
-        {
-            "id": 1,
-            "name":"service1",
-            "port":8080,
-            "protocol":"http"
-        },
-        {
-            "id": 2,
-            "name":"service2",
-            "port":8081,
-            "protocol":"http"
-        }
-    ],
-    "users":[
-        {
-            "id": 1,
-            "userName":"user1",
-            "email":"jcayllahua@gmail.com",
-            "password":"password1"
-        },
-        {
-            "id": 2,
-            "userName":"user2",
-            "email":"maria@gmail.com",
-            "password":"password2"
-        }
-    ],
-    "usersProfile":[
-        {
-            "id": 1,
-            "firstName":"Juan",
-            "lastName":"Perez",
-            "age":25,
-            "address":"Calle 1",
-            "phone":"123456789",
-            "userId": 1
-        },
-        {
-            "id": 2,
-            "firstName":"Maria",
-            "lastName":"Perez",
-            "age":22,
-            "address":"Calle 2",
-            "phone":"123456781",
-            "userId": 2
-        }
-    ]
+  "services": [
+    {
+      "id": 1,
+      "name": "service1",
+      "port": 8080,
+      "protocol": "http"
+    },
+    {
+      "id": 2,
+      "name": "service2",
+      "port": 8081,
+      "protocol": "http"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "userName": "user1",
+      "email": "jcayllahua@gmail.com",
+      "loggedIn": true,
+      "password": "password1"
+    },
+    {
+      "id": 2,
+      "userName": "user2",
+      "email": "maria@gmail.com",
+      "loggedIn": true,
+      "password": "password2"
+    },
+    {
+      "id": 3,
+      "userName": "user3",
+      "email": "jcayllahua2@gmail.com",
+      "loggedIn": false,
+      "password": "password12"
+    }
+  ],
+  "usersProfile": [
+    {
+      "id": 1,
+      "firstName": "Juan",
+      "lastName": "Perez",
+      "age": 25,
+      "address": "Calle 1",
+      "phone": "123456789",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "firstName": "Maria",
+      "lastName": "Perez",
+      "age": 22,
+      "address": "Calle 2",
+      "phone": "123456781",
+      "userId": 2
+    }
+  ]
 }

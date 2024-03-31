@@ -12,7 +12,9 @@ export default defineConfig({
       '@service-catalog/components': fileURLToPath(
         new URL('./src/service-catalog/components', import.meta.url)
       ),
-      '@assets': fileURLToPath(new URL('./src/assets', import.meta.url))
+      '@iam': fileURLToPath(new URL('./src/iam', import.meta.url)),
+      '@assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
+      '@shared': fileURLToPath(new URL('./src/shared', import.meta.url)),
     }
   }
 })

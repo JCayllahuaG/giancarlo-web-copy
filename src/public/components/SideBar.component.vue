@@ -13,7 +13,8 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 function changePath(path) {
-  router.push(path)
+  if (path === 'services') router.push('/dashboard/services')
+  // router.push(path)
 }
 
 const props = defineProps(['isExpanded'])
