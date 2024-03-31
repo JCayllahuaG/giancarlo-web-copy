@@ -51,6 +51,8 @@ async function Login() {
     detail: 'User logged in successfully',
     life: 3000
   })
+  await loginService.loginUser(userExists.data[0].id)
+
   await Sleep(3000)
   router.push('/dashboard')
 }

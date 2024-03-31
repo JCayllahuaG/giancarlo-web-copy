@@ -25,7 +25,7 @@
       "id": 2,
       "userName": "user2",
       "email": "maria@gmail.com",
-      "loggedIn": false,
+      "loggedIn": true,
       "password": "password2"
     },
     {
