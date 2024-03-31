@@ -2,27 +2,63 @@
 import { useRouter } from 'vue-router'
 import FormField from '@shared/components/FormField.component.vue'
 import { useToast } from 'primevue/usetoast'
+import { iamService } from '@iam/services/iam-api.service.js'
 
 const router = useRouter()
 const toast = useToast()
+const loginService = new iamService()
+function userWithEmailExists(email) {
+  return loginService.getUserByEmail(email)
+}
+const inputNotBlank = (input) => {
+  return input !== ''
+}
 async function Login() {
-  // Perform login logic here
-  // Redirect to another route after successful login
+  const email = document.getElementById('email').value
+  const password = document.getElementById('password').value
+
+  if (!inputNotBlank(email) || !inputNotBlank(password)) {
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Please fill in all fields',
+      life: 3000
+    })
+    return
+  }
+  const userExists = await userWithEmailExists(email)
+  if (userExists.data.length === 0) {
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'User does not exist',
+      life: 3000
+    })
+    return
+  }
+  if (password !== userExists.data[0].password) {
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Incorrect password',
+      life: 3000
+    })
+    return
+  }
   toast.add({
     severity: 'success',
     summary: 'Success',
-    detail: 'Login Successful',
+    detail: 'User logged in successfully',
     life: 3000
   })
-  await Sleep(3500)
+  await Sleep(3000)
   router.push('/dashboard')
 }
 function Register() {
   router.push('/signup')
 }
-
-function Sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms))
+function Sleep(milliseconds) {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds))
 }
 </script>
 
